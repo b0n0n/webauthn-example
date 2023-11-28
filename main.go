@@ -21,7 +21,7 @@ func main() {
 	web, err = webauthn.New(&webauthn.Config{
 		RPDisplayName: "Foobar Corp.",          // Display Name for your site
 		RPID:          "localhost",             // Generally the domain name for your site
-		RPOrigin:      "http://localhost:8080", // The origin URL for WebAuthn requests
+		RPOrigin:      "http://localhost:8686", // The origin URL for WebAuthn requests
 	})
 
 	if err != nil {
@@ -36,7 +36,7 @@ func main() {
 
 	http.Handle("/", http.FileServer(http.Dir("./")))
 
-	serverAddress := ":8080"
+	serverAddress := ":8686"
 
 	log.Println("starting server at", serverAddress)
 	log.Fatal(http.ListenAndServe(serverAddress, nil))
